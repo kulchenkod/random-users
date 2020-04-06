@@ -45,7 +45,7 @@ const UserDetailsInfo: React.FC<Props> = ({
   return (
     <Grid item>
       <Typography align="center" variant="h6">
-        Details Page User
+        Details User
       </Typography>
       <div className={classes.avatar}>
         <Avatar src={large} className={classes.large} />
