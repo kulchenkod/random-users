@@ -7,8 +7,8 @@ import { setSearchValue } from "../../../store/actions";
 const useStyles = makeStyles(
   createStyles({
     search: {
-      marginBottom: "10px"
-    }
+      marginBottom: "10px",
+    },
   })
 );
 

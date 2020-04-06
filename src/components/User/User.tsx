@@ -12,32 +12,36 @@ type Props = {
   onClick(id: string): void;
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     "& > *": {
-      margin: theme.spacing(1)
-    }
+      margin: theme.spacing(1),
+    },
   },
   large: {
     width: theme.spacing(9),
-    height: theme.spacing(9)
+    height: theme.spacing(9),
   },
   item: {
     cursor: "pointer",
     "&:hover": {
-      transform: "scale(1.1)"
-    }
-  }
+      transform: "scale(1.1)",
+    },
+  },
 }));
 
 const User: React.FC<Props> = ({
   onClick,
   uuid,
   large,
-  name: { first, last, title }
+  name: { first, last, title },
 }) => {
   const classes = useStyles();
+
+  const handleClick = () => {
+    onClick(uuid);
+  };
 
   return (
     <Grid
@@ -48,7 +52,7 @@ const User: React.FC<Props> = ({
       md={4}
       lg={2}
       xl={2}
-      onClick={onClick.bind(null, uuid)}
+      onClick={handleClick}
       className={classes.item}
     >
       <Paper>

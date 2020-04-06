@@ -3,17 +3,18 @@ import { createSelector } from "reselect";
 import { State } from "./reducer";
 import { User } from "../types";
 
-const getSearchList: Selector<State, Record<string, number>> = state =>
+const getSearchList: Selector<State, Record<string, number>> = (state) =>
   state.byLastFirstNames;
 
-const getUsersList: Selector<State, Record<string, User>> = state =>
+const getUsersList: Selector<State, Record<string, User>> = (state) =>
   state.usersList;
 
-const getSearchValue: Selector<State, string> = state => state.searchValue;
+const getSearchValue: Selector<State, string> = (state) => state.searchValue;
 
-const getLoading: Selector<State, boolean> = state => state.loading;
+const getLoading: Selector<State, boolean> = (state) => state.loading;
 
-const getCurrentUserId: Selector<State, string> = state => state.currentUserId;
+const getCurrentUserId: Selector<State, string> = (state) =>
+  state.currentUserId;
 
 export const selectCurrentUser: Selector<State, User> = createSelector(
   [getUsersList, getCurrentUserId],
@@ -41,7 +42,7 @@ export const selectSearchUsers: Selector<
 > = createSelector(
   [getUsersList, getSearchSelect, getLoading],
   (collection, dataSearch, loading) => ({
-    data: dataSearch.map(id => collection[id]),
-    loading
+    data: dataSearch.map((id) => collection[id]),
+    loading,
   })
 );

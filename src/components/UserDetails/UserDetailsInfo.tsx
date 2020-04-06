@@ -1,25 +1,25 @@
 import React from "react";
 import { Grid, Typography, makeStyles, Avatar } from "@material-ui/core";
-import { User } from "../../types";
 import moment from "moment";
+import { User } from "../../types";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     "& > * + *": {
-      marginLeft: theme.spacing(2)
-    }
+      marginLeft: theme.spacing(2),
+    },
   },
   avatar: {
     display: "flex",
     "& > *": {
-      margin: theme.spacing(1)
-    }
+      margin: theme.spacing(1),
+    },
   },
   large: {
     width: theme.spacing(9),
-    height: theme.spacing(9)
-  }
+    height: theme.spacing(9),
+  },
 }));
 
 type Props = {
@@ -29,14 +29,14 @@ type Props = {
 const UserDetailsInfo: React.FC<Props> = ({
   currentUser: {
     location: {
-      street: { number, name }
+      street: { number, name },
     },
     picture: { large },
     email,
     gender,
     dob: { date, age },
-    phone
-  }
+    phone,
+  },
 }) => {
   const classes = useStyles();
 

@@ -3,17 +3,17 @@ import { Typography, AppBar, Toolbar, makeStyles } from "@material-ui/core";
 import { useLocation, Link } from "react-router-dom";
 import { GoBackButton } from "../common";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   navigationWrapper: {
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   link: {
     color: "white",
-    textDecoration: "none"
-  }
+    textDecoration: "none",
+  },
 }));
 
 const Header: React.FC = () => {

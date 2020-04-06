@@ -3,10 +3,10 @@ import { Button, makeStyles } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useHistory } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    color: "white"
-  }
+    color: "white",
+  },
 }));
 
 const GoBackButton: React.FC = ({ children }) => {

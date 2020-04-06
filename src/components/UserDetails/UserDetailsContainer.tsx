@@ -1,29 +1,29 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCurrentUser } from "../../store/selectors";
 import {
   Container,
   CircularProgress,
   Paper,
-  makeStyles
+  makeStyles,
 } from "@material-ui/core";
+import { selectCurrentUser } from "../../store/selectors";
 import { getDetailsUser, clearCurrentUser } from "../../store/actions";
 import UserDetailsInfo from "./UserDetailsInfo";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     "& > * + *": {
-      marginLeft: theme.spacing(2)
-    }
+      marginLeft: theme.spacing(2),
+    },
   },
   container: {
-    margin: 0
+    margin: 0,
   },
   item: {
-    cursor: "pointer"
-  }
+    cursor: "pointer",
+  },
 }));
 
 const UserDetailsContainer: React.FC = () => {

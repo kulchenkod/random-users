@@ -1,26 +1,26 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { Grid, CircularProgress, makeStyles } from "@material-ui/core";
 import { getAllUsers, clearSearchValue } from "../../store/actions";
 import { selectSearchUsers } from "../../store/selectors";
-import { Grid, CircularProgress, makeStyles } from "@material-ui/core";
 import { User } from "../User";
 import { FilterRow } from "../common/FilterRow";
 import { User as ItemUser } from "../../types";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     "& > * + *": {
-      marginLeft: theme.spacing(2)
-    }
+      marginLeft: theme.spacing(2),
+    },
   },
   container: {
-    margin: 0
+    margin: 0,
   },
   item: {
-    cursor: "pointer"
-  }
+    cursor: "pointer",
+  },
 }));
 
 const Main: React.FC = () => {
@@ -47,7 +47,7 @@ const Main: React.FC = () => {
   const renderUser = ({
     name,
     login: { uuid },
-    picture: { large }
+    picture: { large },
   }: ItemUser) => {
     return (
       <User

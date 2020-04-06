@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { Reducer } from "redux";
 import * as type from "./types";
 import { User } from "../types";
@@ -9,7 +10,7 @@ const initialState = {
   byLastFirstNames: {} as Record<string, number>,
   searchValue: "" as string,
   currentUserId: "" as string,
-  error: null as string | null
+  error: null as string | null,
 };
 
 export type State = typeof initialState;
@@ -19,18 +20,18 @@ const reducer: Reducer<State, Actions> = (state = initialState, action) => {
     case type.CLEAR_SEARCH_VALUE:
       return {
         ...state,
-        searchValue: ""
+        searchValue: "",
       };
     case type.CLEAR_CURRENT_USER:
       return {
         ...state,
-        currentUserId: ""
+        currentUserId: "",
       };
     case type.GET_USERS_REQUEST:
       return {
         ...state,
         loading: true,
-        error: null
+        error: null,
       };
     case type.GET_USERS_SUCCESS:
       return {
@@ -39,7 +40,7 @@ const reducer: Reducer<State, Actions> = (state = initialState, action) => {
         usersList: action.payload.reduce(
           (start, item) => ({
             ...start,
-            [item.login.uuid]: item
+            [item.login.uuid]: item,
           }),
           {}
         ),
@@ -48,20 +49,20 @@ const reducer: Reducer<State, Actions> = (state = initialState, action) => {
             ...start,
             [item.name.first
               .toLowerCase()
-              .concat(`&&&${item.name.last.toLowerCase()}`)]: item.login.uuid
+              .concat(`&&&${item.name.last.toLowerCase()}`)]: item.login.uuid,
           }),
           {}
-        )
+        ),
       };
     case type.SET_SEARCH_VALUE_SUCCESS:
       return {
         ...state,
-        searchValue: action.payload
+        searchValue: action.payload,
       };
     case type.GET_DETAILS_USER:
       return {
         ...state,
-        currentUserId: action.payload
+        currentUserId: action.payload,
       };
     default:
       return state;
