@@ -5,6 +5,8 @@ import { Main } from "./components/Main";
 import { UserDetailsContainer } from "./components/UserDetails";
 
 const App: React.FC = () => {
+  let x;
+  console.log("asd");
   return (
     <div>
       <Router>
